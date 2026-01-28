@@ -270,9 +270,9 @@ SuperSport-Portfolio-Website/
 <h2>📞 Contact & Support</h2>
 
 <ul>
-  <li><strong>Email:</strong> your-email@example.com</li>
-  <li><strong>LinkedIn:</strong> your-linkedin-profile</li>
-  <li><strong>GitHub:</strong> your-github-profile</li>
+  <li><strong>Email:</strong> abdo17714@gmail.com</li>
+  <li><strong>LinkedIn:</strong> https://www.linkedin.com/in/abd-elrahman-mohamed-520550300/</li>
+  <li><strong>GitHub:</strong> https://github.com/Abd-ElrahmanMohamed</li>
 </ul>
 
 <hr>

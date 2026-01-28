@@ -1,0 +1,52 @@
+<div class="admin-container">
+  <div class="admin-header">
+    <h1>Admin Control Panel</h1>
+    <p class="admin-subtitle">Manage your portfolio content</p>
+  </div>
+
+  <div class="tabs-navigation">
+    <button
+      class="tab-button"
+      [class.active]="activeSection === 'services'"
+      (click)="selectSection('services')"
+    >
+      📋 Services
+    </button>
+    <button
+      class="tab-button"
+      [class.active]="activeSection === 'home'"
+      (click)="selectSection('home')"
+    >
+      🏠 Home
+    </button>
+    <button
+      class="tab-button"
+      [class.active]="activeSection === 'about'"
+      (click)="selectSection('about')"
+    >
+      ℹ️ About
+    </button>
+    <button
+      class="tab-button"
+      [class.active]="activeSection === 'portfolio'"
+      (click)="selectSection('portfolio')"
+    >
+      🎨 Portfolio
+    </button>
+    <button
+      class="tab-button"
+      [class.active]="activeSection === 'contact'"
+      (click)="selectSection('contact')"
+    >
+      📧 Contact
+    </button>
+  </div>
+
+  <div class="content-area">
+    <app-services-editor *ngIf="activeSection === 'services'"></app-services-editor>
+    <app-home-editor *ngIf="activeSection === 'home'"></app-home-editor>
+    <app-about-editor *ngIf="activeSection === 'about'"></app-about-editor>
+    <app-portfolio-editor *ngIf="activeSection === 'portfolio'"></app-portfolio-editor>
+    <app-contact-editor *ngIf="activeSection === 'contact'"></app-contact-editor>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<!-- Clients Section -->
+<section class="section-padding bg-light">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Clients</h2>
+      <p class="text-muted">We are proud of our partnerships with major brands</p>
+    </div>
+
+    <div class="row">
+      <div *ngFor="let client of clients" class="col-lg-2 col-md-4 col-sm-6 mb-4">
+        <div class="client-logo">
+          <img [src]="client.logo" [alt]="client.name" />
+          <h5 class="text-primary fw-bold">{{ client.name }}</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <h4 class="mb-3">{{ partnerData.title }}</h4>
+      <p class="text-muted mb-4">{{ partnerData.description }}</p>
+      <a routerLink="/contact" class="btn btn-primary-custom btn-lg">{{
+        partnerData.buttonText
+      }}</a>
+    </div>
+  </div>
+</section>

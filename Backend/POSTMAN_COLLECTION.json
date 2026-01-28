@@ -1,0 +1,299 @@
+{
+  "info": {
+    "name": "Portfolio Admin API - Auth & Security",
+    "description": "Complete API collection for testing authentication and authorization",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "health"]
+        },
+        "description": "Test if server is running"
+      }
+    },
+    {
+      "name": "Auth - Register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"admin\",\n  \"email\": \"admin@example.com\",\n  \"password\": \"password123\",\n  \"confirmPassword\": \"password123\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/auth/register",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "auth", "register"]
+        },
+        "description": "Register a new admin user. Save the accessToken and refreshToken for further requests."
+      }
+    },
+    {
+      "name": "Auth - Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"admin@example.com\",\n  \"password\": \"password123\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/auth/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "auth", "login"]
+        },
+        "description": "Login with admin credentials. Only admin users can log in."
+      }
+    },
+    {
+      "name": "Auth - Get Current User",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_ACCESS_TOKEN_HERE",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/auth/me",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "auth", "me"]
+        },
+        "description": "Get information about the currently logged-in user. Replace YOUR_ACCESS_TOKEN_HERE with the token from login/register."
+      }
+    },
+    {
+      "name": "Auth - Refresh Token",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"refreshToken\": \"YOUR_REFRESH_TOKEN_HERE\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/auth/refresh",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "auth", "refresh"]
+        },
+        "description": "Get a new access token using the refresh token. Use this when access token expires."
+      }
+    },
+    {
+      "name": "Auth - Logout",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_ACCESS_TOKEN_HERE",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/auth/logout",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "auth", "logout"]
+        },
+        "description": "Logout the current user"
+      }
+    },
+    {
+      "name": "Public - Get Home",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/home",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "home"]
+        },
+        "description": "Public endpoint - no authentication required"
+      }
+    },
+    {
+      "name": "Public - Get About",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/about",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "about"]
+        },
+        "description": "Public endpoint - no authentication required"
+      }
+    },
+    {
+      "name": "Public - Get Services",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/services",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "services"]
+        },
+        "description": "Public endpoint - no authentication required"
+      }
+    },
+    {
+      "name": "Protected - Update Home (Admin Only)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_ACCESS_TOKEN_HERE",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Welcome to My Portfolio\",\n  \"description\": \"Updated description\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/home",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "home"]
+        },
+        "description": "Protected endpoint - requires admin authentication"
+      }
+    },
+    {
+      "name": "Protected - Update About (Admin Only)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_ACCESS_TOKEN_HERE",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"About Me\",\n  \"description\": \"My professional background...\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/about",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "about"]
+        },
+        "description": "Protected endpoint - requires admin authentication"
+      }
+    },
+    {
+      "name": "Protected - Create Service (Admin Only)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_ACCESS_TOKEN_HERE",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"icon\": \"fas fa-code\",\n  \"title\": \"Web Development\",\n  \"description\": \"Custom web applications\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/services",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "services"]
+        },
+        "description": "Protected endpoint - requires admin authentication"
+      }
+    },
+    {
+      "name": "Protected - Create Portfolio Item (Admin Only)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_ACCESS_TOKEN_HERE",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"image\": \"https://example.com/image.jpg\",\n  \"title\": \"Project Title\",\n  \"description\": \"Project description\",\n  \"link\": \"https://project.example.com\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/portfolio",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "portfolio"]
+        },
+        "description": "Protected endpoint - requires admin authentication"
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "env": {
+    "MONGODB_URI": "mongodb://localhost:27017/portfolio-admin",
+    "PORT": "5000",
+    "JWT_SECRET": "your_jwt_secret_key_change_this_in_production",
+    "NODE_ENV": "development",
+    "CORS_ORIGIN": "http://localhost:4200"
+  },
+  "watch": ["*.js", "config/", "controllers/", "routes/", "models/", "middleware/"],
+  "ignore": ["node_modules/"],
+  "delay": 500
+}

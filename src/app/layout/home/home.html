@@ -1,0 +1,33 @@
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <h1>{{ homeData?.heroTitle }}</h1>
+        <p>{{ homeData?.heroDescription }}</p>
+        <a routerLink="{{ homeData?.heroButtonLink }}" class="btn btn-primary-custom">
+          {{ homeData?.heroButtonText }}
+        </a>
+        <a routerLink="/portfolio" class="btn btn-outline-light mx-2">{{
+          homeData?.ourWorkButtonText || 'Our Work'
+        }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Overview Section -->
+<section class="section-padding bg-light">
+  <div class="container">
+    <div class="row">
+      <div *ngFor="let stat of homeData?.stats" class="col-lg-3 col-md-6 mb-4">
+        <div class="text-center">
+          <div class="stat-item">
+            <span class="stat-number">{{ stat.number }}</span>
+            <span class="stat-text">{{ stat.label }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

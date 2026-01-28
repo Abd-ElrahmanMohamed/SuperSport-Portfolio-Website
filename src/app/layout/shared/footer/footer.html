@@ -1,0 +1,52 @@
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-4">
+        <h4>Super Sport</h4>
+        <p>{{ footerData?.description }}</p>
+      </div>
+      <div class="col-lg-2 col-md-6 mb-4">
+        <h4>Quick Links</h4>
+        <div class="footer-links">
+          <ul>
+            <li><a routerLink="/home">Home</a></li>
+            <li><a routerLink="/about">About</a></li>
+            <li><a routerLink="/services">Services</a></li>
+            <li><a routerLink="/portfolio">Portfolio</a></li>
+            <li><a routerLink="/contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h4>Our Services</h4>
+        <div class="footer-links">
+          <ul>
+            <li>
+              <a routerLink="/services">Sports Advertising</a>
+            </li>
+            <li>
+              <a routerLink="/services">Event Management</a>
+            </li>
+            <li>
+              <a routerLink="/services">Sports Marketing</a>
+            </li>
+            <li><a routerLink="/services">TV Production</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h4>Follow Us</h4>
+        <div class="social-icons mt-3">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; {{ footerData?.year }} {{ footerData?.companyName }}. {{ footerData?.rights }}</p>
+    </div>
+  </div>
+</footer>

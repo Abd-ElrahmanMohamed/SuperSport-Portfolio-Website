@@ -1,0 +1,92 @@
+<!-- Contact Section -->
+<section class="section-padding bg-light">
+  <div class="container">
+    <div class="section-title">
+      <h2>{{ contactData?.sectionTitle || 'Contact Us' }}</h2>
+      <p class="text-muted">
+        {{ contactData?.sectionDescription || 'Get in touch to learn how we can help you' }}
+      </p>
+    </div>
+
+    <div class="row mb-5">
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h4>Address</h4>
+          <p>{{ contactData?.address }}</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <h4>Phone Numbers</h4>
+          <p *ngFor="let phone of contactData?.phones">{{ phone }}</p>
+          <p *ngIf="!contactData?.phones || contactData?.phones?.length === 0">
+            {{ contactData?.phone }}
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h4>Email</h4>
+          <p *ngFor="let email of contactData?.emails">{{ email }}</p>
+          <p *ngIf="!contactData?.emails || contactData?.emails?.length === 0">
+            {{ contactData?.email }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="card shadow">
+          <div class="card-body p-5">
+            <h4 class="text-center mb-4">Send a Message</h4>
+            <form id="contactForm">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Full Name</label>
+                  <input type="text" class="form-control" placeholder="Enter your name" required />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Enter your email"
+                    required
+                  />
+                </div>
+                <div class="col-12 mb-3">
+                  <label class="form-label">Subject</label>
+                  <input type="text" class="form-control" placeholder="Enter subject" required />
+                </div>
+                <div class="col-12 mb-3">
+                  <label class="form-label">Message</label>
+                  <textarea
+                    class="form-control"
+                    rows="5"
+                    placeholder="Enter your message"
+                    required
+                  ></textarea>
+                </div>
+                <div class="col-12 text-center">
+                  <button type="submit" class="btn btn-primary-custom btn-lg">Send Message</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

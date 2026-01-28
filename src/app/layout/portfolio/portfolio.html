@@ -1,0 +1,26 @@
+<!-- Portfolio Section -->
+<section class="section-padding">
+  <div class="container">
+    <div class="section-title">
+      <h2>{{ portfolioData?.sectionTitle || 'Our Portfolio' }}</h2>
+      <p class="text-muted">
+        {{ portfolioData?.sectionDescription || 'Showcasing our most prominent projects' }}
+      </p>
+    </div>
+
+    <div class="row">
+      <div *ngFor="let item of portfolioItems" class="col-lg-4 col-md-6">
+        <div class="portfolio-item">
+          <div class="portfolio-img" [style.background-image]="'url(' + item.image + ')'"></div>
+          <div class="portfolio-content">
+            <h4>{{ item.title }}</h4>
+            <p class="text-muted">
+              {{ item.description }}
+            </p>
+            <span class="badge bg-primary">{{ item.category }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

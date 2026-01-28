@@ -1,0 +1,116 @@
+<!-- Auth Modal -->
+<div
+  class="modal fade"
+  #authModal
+  id="authModal"
+  tabindex="-1"
+  aria-labelledby="authModalLabel"
+  aria-hidden="true"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content auth-modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header auth-modal-header">
+        <h5 class="modal-title"><i class="fas fa-sign-in-alt"></i> Admin Login</h5>
+        <button
+          type="button"
+          class="btn-close"
+          [disabled]="isLoading"
+          (click)="closeModal()"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body auth-modal-body">
+        <!-- Error Alert -->
+        <div
+          *ngIf="errorMessage"
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
+          <i class="fas fa-exclamation-circle"></i> {{ errorMessage }}
+          <button
+            type="button"
+            class="btn-close"
+            (click)="errorMessage = ''"
+            aria-label="Close"
+          ></button>
+        </div>
+
+        <!-- Success Alert -->
+        <div
+          *ngIf="successMessage"
+          class="alert alert-success alert-dismissible fade show"
+          role="alert"
+        >
+          <i class="fas fa-check-circle"></i> {{ successMessage }}
+        </div>
+
+        <!-- Login Form -->
+        <form (ngSubmit)="onLogin()" class="auth-form">
+          <h5 class="form-title">Welcome Back</h5>
+          <p class="form-subtitle">Sign in to access your admin panel</p>
+
+          <!-- Email Input -->
+          <div class="form-group mb-3">
+            <label for="loginEmail" class="form-label">
+              <i class="fas fa-envelope"></i> Email Address
+            </label>
+            <input
+              type="email"
+              class="form-control"
+              id="loginEmail"
+              [(ngModel)]="loginForm.email"
+              name="email"
+              placeholder="Enter your email"
+              [class.is-invalid]="showLoginErrors.email"
+              [disabled]="isLoading"
+            />
+            <div class="invalid-feedback" *ngIf="showLoginErrors.email">
+              {{ getFieldError('email') }}
+            </div>
+          </div>
+
+          <!-- Password Input -->
+          <div class="form-group mb-3">
+            <label for="loginPassword" class="form-label">
+              <i class="fas fa-lock"></i> Password
+            </label>
+            <input
+              type="password"
+              class="form-control"
+              id="loginPassword"
+              [(ngModel)]="loginForm.password"
+              name="password"
+              placeholder="Enter your password"
+              [class.is-invalid]="showLoginErrors.password"
+              [disabled]="isLoading"
+            />
+            <div class="invalid-feedback" *ngIf="showLoginErrors.password">
+              {{ getFieldError('password') }}
+            </div>
+          </div>
+
+          <!-- Remember Me -->
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="rememberMe" />
+            <label class="form-check-label" for="rememberMe"> Remember me </label>
+          </div>
+
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            class="btn btn-primary w-100 auth-submit-btn"
+            [disabled]="isLoading"
+          >
+            <span *ngIf="!isLoading"> <i class="fas fa-sign-in-alt"></i> Sign In </span>
+            <span *ngIf="isLoading"> <i class="fas fa-spinner fa-spin"></i> Signing In... </span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

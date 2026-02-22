@@ -150,7 +150,7 @@ npm start
 <h3>Admin Login Credentials (Default)</h3>
 <pre>
 Email: admin@example.com
-Password: password123
+Password: admin123456
 </pre>
 
 <hr>
